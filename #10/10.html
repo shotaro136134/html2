@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f4f4f4;
+        }
+    
+        #scrollTopBtn {
+          display: none;
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background-color: #3498db;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+          transition: opacity 0.3s ease-in-out;
+        }
+    
+        #scrollTopBtn:hover {
+          opacity: 0.8;
+        }
+      </style>
+</head>
+<body>
+        <div style="height: 2000px;">
+          <p>スクロールすると、「トップへ戻る」ボタンが表示されます</p>
+        </div>
+        
+        <button id="scrollTopBtn" onclick="scrollToTop()">トップへ戻る</button>
+        
+        <script>
+          window.onscroll = function () {
+            scrollFunction();
+          };
+        
+          function scrollFunction() {
+            var scrollTopBtn = document.getElementById("scrollTopBtn");
+        
+            if (document.body.scrollTop > window.innerHeight / 2 || document.documentElement.scrollTop > window.innerHeight / 2) {
+              scrollTopBtn.style.display = "block";
+            } else {
+              scrollTopBtn.style.display = "none";
+            }
+          }
+        
+          function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+          }
+        </script>
+</body>
+</html>

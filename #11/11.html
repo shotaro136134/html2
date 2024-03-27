@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>レスポンシブメニュー</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  .nav li {
+    float: left;
+  }
+
+  .nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .nav li a:hover {
+    background-color: #111;
+  }
+
+  @media screen and (max-width: 600px) {
+    .nav li {
+      float: none;
+      width: 100%; /* スマートフォンではメニュー項目が縦に並ぶように */
+    }
+  }
+
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
+    .nav li {
+      width: 25%; /* タブレットではメニュー項目を行に収める */
+    }
+  }
+
+  /* デスクトップのスタイル */
+  @media screen and (min-width: 1025px) {
+    .nav li {
+      width: auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<ul class="nav">
+  <li><a href="#menu1">メニュー1</a></li>
+  <li><a href="#menu2">メニュー2</a></li>
+  <li><a href="#menu3">メニュー3</a></li>
+  <li><a href="#menu4">メニュー4</a></li>
+</ul>
+
+</body>
+</html>

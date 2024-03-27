@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-color: #f4f4f4;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+        }
+    
+        .button {
+          display: inline-block;
+          padding: 10px 20px;
+          text-decoration: none;
+          color: black;
+          font-weight: bold;
+          border-radius: 5px;
+          transition: transform 0.3s;
+          margin: 10px;
+        }
+    
+        /* ホバーエフェクト1 */
+        .button:hover.effect-1 {
+          background-color: #3498db;
+          transform: scale(1.1);
+        }
+    
+        /* ホバーエフェクト2 */
+        .button:hover.effect-2 {
+          background-color: #2ecc71;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    
+        /* ホバーエフェクト3 */
+        .button:hover.effect-3 {
+          background-color: #e74c3c;
+          border: 2px solid #c0392b;
+        }
+      </style>
+</head>
+<body>
+    <a href="#" class="button effect-1">ホバーエフェクト1</a>
+<a href="#" class="button effect-2">ホバーエフェクト2</a>
+<a href="#" class="button effect-3">ホバーエフェクト3</a>
+
+
+</body>
+</html>

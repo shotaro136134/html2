@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-color: #f4f4f4;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+    
+        form {
+          display: flex;
+          flex-direction: column;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+    
+        input {
+          margin-bottom: 10px;
+          padding: 10px;
+        }
+    
+        button {
+          padding: 10px;
+          background-color: #3498db;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+        }
+    
+        .thank-you-message {
+          display: none;
+          color: #2ecc71;
+          font-weight: bold;
+          text-align: center;
+        }
+      </style>
+</head>
+<body>
+    <form id="emailForm">
+        <label for="email">メールアドレス：</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">送信</button>
+      </form>
+      
+      <div id="thankYouMessage" class="thank-you-message">ありがとう！</div>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var emailForm = document.getElementById('emailForm');
+          var thankYouMessage = document.getElementById('thankYouMessage');
+      
+          emailForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // フォームのデフォルトの送信動作を防ぐ
+      
+            // ここでメールの送信処理などを行う（実際の送信処理はサーバーサイドで行うべきです）
+      
+            // フォーム非表示、ありがとうメッセージ表示
+            emailForm.style.display = 'none';
+            thankYouMessage.style.display = 'block';
+          });
+        });
+      </script>
+</body>
+</html>

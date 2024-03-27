@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6</title>
+    <style>
+        .accordion {
+            width: 100%;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .accordion li + li {
+            margin-top: 10px;
+        }
+
+        .accordion-header {
+            background-color: #f7f7f7;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ddd;
+            user-select: none; 
+        }
+
+        .accordion-content {
+            border: 1px solid #ddd;
+            border-top: none;
+            display: none;
+            padding: 10px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<ul class="accordion">
+    <li>
+        <div class="accordion-header">あ行</div>
+        <div class="accordion-content">
+            <p>あいうえお</p>
+        </div>
+    </li>
+    <li>
+        <div class="accordion-header">か行</div>
+        <div class="accordion-content">
+            <p>かきくけこ</p>
+        </div>
+    </li>
+    <li>
+        <div class="accordion-header">さ行</div>
+        <div class="accordion-content">
+            <p>さしすせそ</p>
+        </div>
+    </li>
+</ul>
+
+<script>
+    // アコーディオンの動作を定義
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const accordionContent = header.nextElementSibling;
+
+            // アコーディオンの開閉状態を切り替え
+            if (accordionContent.style.display === 'block') {
+                accordionContent.style.display = 'none';
+            } else {
+                document.querySelectorAll('accordion-content').forEach(content => {
+                    content.style.display = 'none'; // 他のすべてを閉じる
+                });
+                accordionContent.style.display = 'block'; // クリックされた内容を開く
+            }
+        });
+    });
+</script>
+</body>
+</html>

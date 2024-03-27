@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f4f4f4;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        }
+    
+        .pricing-table {
+          display: flex;
+          justify-content: space-around;
+          max-width: 800px;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+        }
+    
+        .plan {
+          flex: 1;
+          padding: 20px;
+          text-align: center;
+        }
+    
+        .plan h3 {
+          color: #333;
+        }
+    
+        .price {
+          font-size: 24px;
+          color: #3498db;
+          margin: 10px 0;
+        }
+    
+        .features {
+          list-style: none;
+          padding: 0;
+          margin: 20px 0;
+        }
+    
+        .features li {
+          margin: 8px 0;
+          color: #666;
+        }
+    
+        .cta-button {
+          display: block;
+          margin: 20px 0;
+          padding: 10px 20px;
+          background-color: #3498db;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 4px;
+          transition: background-color 0.3s ease-in-out;
+        }
+    
+        .cta-button:hover {
+          background-color: #258cd1;
+        }
+      </style>
+</head>
+<body>
+    <div class="pricing-table">
+        <div class="plan">
+          <h3>スタンダード</h3>
+          <div class="price">￥1999/month</div>
+          <ul class="features">
+            <li>特徴1</li>
+            <li>特徴2</li>
+            <li>特徴3</li>
+          </ul>
+          <a href="#" class="cta-button">選択</a>
+        </div>
+      
+        <div class="plan">
+          <h3>プレミアム</h3>
+          <div class="price">￥2999/month</div>
+          <ul class="features">
+            <li>特徴1</li>
+            <li>特徴2</li>
+            <li>特徴3</li>
+          </ul>
+          <a href="#" class="cta-button">選択</a>
+        </div>
+      
+        <div class="plan">
+          <h3>デラックス</h3>
+          <div class="price">￥3999/month</div>
+          <ul class="features">
+            <li>特徴1</li>
+            <li>特徴2</li>
+            <li>特徴3</li>
+          </ul>
+          <a href="#" class="cta-button">選択</a>
+        </div>
+      </div>
+</body>
+</html>

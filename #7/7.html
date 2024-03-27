@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7</title>
+    <style>
+      .slider {
+          position: relative;
+          width: 70%;
+          margin: auto;
+          overflow: hidden;
+      }
+
+      .slide {
+          display: none;
+          width: 100%;
+          text-align: center;
+      }
+
+      .slide.active {
+          display: block;
+      }
+
+      .caption {
+          background-color: #000;
+          color: #fff;
+          padding: 10px;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+      }
+
+      /* キャプションの透明度 */
+      .caption {
+          opacity: 0.7;
+      }
+
+      img {
+          width: 100%;
+          height: auto;
+      }
+  </style>
+</head>
+<body>
+    
+<div class="slider">
+    <div class="slide active">
+      <img src="春.jpg" alt="写真1">
+      <div class="caption">春</div>
+    </div>
+  
+    <div class="slide">
+      <img src="夏.jpg" alt="写真2">
+      <div class="caption">夏</div>
+    </div>
+  
+    <div class="slide">
+      <img src="秋.jpg" alt="写真3">
+      <div class="caption">秋</div>
+    </div>
+
+    <div class="slide">
+        <img src="冬.jpg" alt="写真3">
+        <div class="caption">冬</div>
+    </div>
+</div>
+
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".slide");
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+      slides.forEach((slide, idx) => {
+          slide.style.display = "none"; // 全てのスライドを非表示
+          slides[idx].classList.remove('active');
+      });
+      slides[index].style.display = "block"; // 現在のスライドを表示
+      slides[index].classList.add('active');
+  }
+
+  function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+  }
+
+  // 最初のスライドを表示
+  showSlide(currentSlide);
+
+  // 自動で次のスライドを表示する間隔を設定
+  setInterval(nextSlide, 3000);
+</script>
+
+</body>
+</html>

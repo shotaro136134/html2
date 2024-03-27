@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f4f4f4;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        }
+    
+        .faq-section {
+          max-width: 600px;
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+        }
+    
+        .faq-item {
+          border-bottom: 1px solid #ddd;
+        }
+    
+        .faq-question {
+          padding: 15px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+    
+        .faq-answer {
+          padding: 15px;
+          display: none;
+        }
+    
+        .faq-question.active {
+          background-color: #3498db;
+          color: #fff;
+        }
+    
+        .faq-answer.active {
+          display: block;
+        }
+      </style>
+</head>
+<body>
+    <div class="faq-section">
+        <div class="faq-item">
+          <div class="faq-question">質問1: これはサンプル質問です？</div>
+          <div class="faq-answer">回答1: はい、これはサンプルの回答です。</div>
+        </div>
+      
+        <div class="faq-item">
+          <div class="faq-question">質問2: もう一つの質問は何ですか？</div>
+          <div class="faq-answer">回答2: もう一つの質問の回答はこちらです。</div>
+        </div>
+      
+        <div class="faq-item">
+          <div class="faq-question">質問3: これはさらに別の質問ですか？</div>
+          <div class="faq-answer">回答3: はい、これはさらに別の質問の回答です。</div>
+        </div>
+      
+        <div class="faq-item">
+          <div class="faq-question">質問4: どんな他の質問がありますか？</div>
+          <div class="faq-answer">回答4: 他の質問についてはこちらです。</div>
+        </div>
+      
+        <div class="faq-item">
+          <div class="faq-question">質問5: 最後の質問は何ですか？</div>
+          <div class="faq-answer">回答5: 最後の質問の回答はこれです。</div>
+        </div>
+      </div>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var faqQuestions = document.querySelectorAll('.faq-question');
+      
+          faqQuestions.forEach(function (question) {
+            question.addEventListener('click', function () {
+              question.classList.toggle('active');
+              var answer = question.nextElementSibling;
+              answer.classList.toggle('active');
+            });
+          });
+        });
+      </script>      
+</body>
+</html>

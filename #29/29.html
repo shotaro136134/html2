@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>スキルプログレスバー</title>
+    <style>
+        /* プログレスバーのスタイル設定 */
+        .progress-container {
+            width: 100%;
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            height: 20px;
+            border-radius: 5px;
+            transition: width 1s ease-in-out;
+        }
+
+        .skill-name {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="skillSet">
+        <!-- ここにJavaScriptでプログレスバーが追加されます -->
+    </div>
+
+    <script>
+        // スキルと進捗値の配列
+        var skills = [
+            { name: '国語', value: '70%' },
+            { name: '算数', value: '80%' },
+            { name: '英語', value: '90%' },
+            { name: '理科', value: '95%' },
+            { name: '社会', value: '100%' }
+        ];
+
+        // スキルをHTMLに追加する関数
+        function displaySkills(skills) {
+            var skillSet = document.getElementById('skillSet');
+            
+            skills.forEach(function(skill) {
+                var skillName = document.createElement('div');
+                skillName.className = 'skill-name';
+                skillName.textContent = skill.name;
+                skillSet.appendChild(skillName);
+
+                var progressContainer = document.createElement('div');
+                progressContainer.className = 'progress-container';
+                skillSet.appendChild(progressContainer);
+
+                var progressBar = document.createElement('div');
+                progressBar.className = 'progress-bar';
+                progressBar.style.width = '0%'; // 初期値は0%
+                progressBar.style.backgroundColor = getProgressColor(skill.value); // 進捗に応じた色を設定
+                progressContainer.appendChild(progressBar);
+
+                // アニメーションを設定
+                setTimeout(function() {
+                    progressBar.style.width = skill.value;
+                }, 0);
+            });
+        }
+
+        // 進捗に応じた色を取得する関数
+        function getProgressColor(value) {
+            var color = '';
+            var percentage = parseInt(value);
+            if (percentage < 80) {
+                color = '#dd4b39'; // 赤色
+            } else if (percentage < 90) {
+                color = '#f39c12'; // オレンジ色
+            } else if (percentage < 100) {
+                color = '#00a65a'; // 緑色
+            } else {
+                color = '#0e90d2'; // 青色
+            }
+            return color;
+        }
+
+        // プログレスバーの表示
+        displaySkills(skills);
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>サイドナビゲーションバー</title>
+  <style>
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #ddd;
+      display: block;
+    }
+
+    .sidebar a:hover {
+      color: #fff;
+      background-color: #575757;
+    }
+
+    .sidebar a.active {
+      color: white;
+      background-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sidebar">
+  <a href="#menu1" onclick="changePage('menu1')">メニュー1</a>
+  <a href="#menu2" onclick="changePage('menu2')">メニュー2</a>
+  <a href="#menu3" onclick="changePage('menu3')">メニュー3</a>
+  <a href="#menu4" onclick="changePage('menu4')">メニュー4</a>
+  <a href="#menu5" onclick="changePage('menu5')">メニュー5</a>
+</div>
+
+<div style="margin-left:260px;">
+  <h2 id="currentPageTitle">現在のページ: メニュー1</h2>
+  <p id="currentPageContent">ここにはページのコンテンツが入ります。</p>
+</div>
+
+<script>
+  function changePage(page) {
+    // ハイライトの処理
+    var links = document.querySelectorAll('.sidebar a');
+    links.forEach(function(link) {
+      link.classList.remove('active');
+    });
+
+    var selectedLink = document.querySelector('.sidebar a[href="#' + page + '"]');
+    selectedLink.classList.add('active');
+
+    // ページの内容を変更する処理
+    var pageTitle = document.getElementById('currentPageTitle');
+    var pageContent = document.getElementById('currentPageContent');
+
+    pageTitle.textContent = '現在のページ: ' + selectedLink.textContent;
+
+    // ここで各ページごとのコンテンツを設定する
+    switch (page) {
+      case 'menu1':
+        pageContent.textContent = 'メニュー1のコンテンツがここに入ります。';
+        break;
+      case 'menu2':
+        pageContent.textContent = 'メニュー2のコンテンツがここに入ります。';
+        break;
+      case 'menu3':
+        pageContent.textContent = 'メニュー3のコンテンツがここに入ります。';
+        break;
+      case 'menu4':
+        pageContent.textContent = 'メニュー4のコンテンツがここに入ります。';
+        break;
+      case 'menu5':
+        pageContent.textContent = 'メニュー5のコンテンツがここに入ります。';
+        break;
+    }
+  }
+</script>
+
+</body>
+</html>

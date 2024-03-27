@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f4f4f4;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        }
+    
+        .tabs {
+          display: flex;
+          margin: 20px;
+        }
+    
+        .tab {
+          padding: 10px 20px;
+          cursor: pointer;
+          border: 1px solid #ddd;
+          border-radius: 5px 5px 0 0;
+          background-color: #fff;
+          margin-right: -1px;
+        }
+    
+        .tab:hover {
+          background-color: #f1f1f1;
+        }
+    
+        .tab-content {
+          display: none;
+          padding: 20px;
+          border: 1px solid #ddd;
+          border-radius: 0 0 5px 5px;
+          background-color: #fff;
+          width: 300px;
+        }
+    
+        .tab-content.active {
+          display: block;
+        }
+      </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab" onclick="openTab('tab1')">サッカー</div>
+        <div class="tab" onclick="openTab('tab2')">バスケ</div>
+        <div class="tab" onclick="openTab('tab3')">バレー</div>
+    </div>
+      
+      <div id="tab1" class="tab-content active">
+        <h2>サッカー</h2>
+        <p>日本でいう蹴球です</p>
+      </div>
+      
+      <div id="tab2" class="tab-content">
+        <h2>バスケ</h2>
+        <p>日本でいう籠球です。</p>
+      </div>
+      
+      <div id="tab3" class="tab-content">
+        <h2>バレー</h2>
+        <p>日本でいう排球です。</p>
+      </div>
+      
+      <script>
+        function openTab(tabName) {
+          var i, tabContent;
+      
+          tabContent = document.getElementsByClassName('tab-content');
+          for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = 'none';
+          }
+      
+          document.getElementById(tabName).style.display = 'block';
+        }
+      </script>
+</body>
+</html>

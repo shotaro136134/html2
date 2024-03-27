@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-color: #f4f4f4;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+        }
+    
+        .tooltip {
+          position: relative;
+          display: inline-block;
+          margin: 10px;
+          cursor: pointer;
+        }
+    
+        .tooltip-text {
+          visibility: hidden;
+          width: 200px;
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          border-radius: 5px;
+          padding: 5px;
+          position: absolute;
+          z-index: 1;
+          top: 125%;
+          left: 50%;
+          margin-left: -100px;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+    
+        .tooltip:hover .tooltip-text {
+          visibility: visible;
+          opacity: 1;
+        }
+      </style>
+</head>
+<body>
+    <body>
+
+        <div class="tooltip">
+          Hover me
+          <div class="tooltip-text">これは最初のテキストに関連する情報です。</div>
+        </div>
+        
+        <div class="tooltip">
+          Another one
+          <div class="tooltip-text">これはもう一つのテキストに関連する情報です。</div>
+        </div>
+        
+        <div class="tooltip">
+          Third text
+          <div class="tooltip-text">これは三番目のテキストに関連する情報です。</div>
+        </div>
+        
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            var tooltips = document.querySelectorAll('.tooltip');
+        
+            tooltips.forEach(function (tooltip) {
+              tooltip.addEventListener('mouseover', function () {
+                tooltip.querySelector('.tooltip-text').style.visibility = 'visible';
+                tooltip.querySelector('.tooltip-text').style.opacity = 1;
+              });
+        
+              tooltip.addEventListener('mouseout', function () {
+                tooltip.querySelector('.tooltip-text').style.visibility = 'hidden';
+                tooltip.querySelector('.tooltip-text').style.opacity = 0;
+              });
+            });
+          });
+        </script>
+        
+</body>
+</html>

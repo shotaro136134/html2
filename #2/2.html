@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+    <style>
+        body {
+          margin: 20px;
+          padding: 20px;
+          background-color: #f4f4f4;
+        }
+    
+        #salad-image {
+          max-width: 100%;
+          height: auto;
+        }
+    
+        #ingredients, #instructions {
+          margin-top: 20px;
+        }
+    
+        ul {
+          list-style-type: none;
+          padding: 0;
+        }
+    
+        ul li::before {
+          content: "•";
+          display: inline-block;
+          width: 1em;
+          margin-left: -1em;
+        }
+      </style>
+</head>
+<body>
+    <header>
+        <h1>新鮮なグリーンサラダ</h1>
+      </header>
+    
+      <section>
+        <img id="salad-image" src="salad.jpg" alt="サラダの写真">
+    
+        <div id="ingredients">
+          <h2>材料</h2>
+          <ul>
+            <li>新鮮なレタス - 2カップ</li>
+            <li>トマト - 1個、切り細かく</li>
+            <li>キュウリ - 1本、薄切り</li>
+            <li>赤玉ねぎ - 1個、薄切り</li>
+            <li>オリーブ - 適量</li>
+            <li>サラダドレッシング - 適量</li>
+            <li>塩とこしょう - 味を調節するために</li>
+          </ul>
+        </div>
+    
+        <div id="instructions">
+          <h2>作り方</h2>
+          <ol>
+            <li>レタス、トマト、キュウリ、赤玉ねぎ、オリーブを大きなボウルに入れます。</li>
+            <li>サラダドレッシングをかけ、優しく混ぜます。</li>
+            <li>塩とこしょうで味を調節します。</li>
+            <li>最後にサラダをきれいな器に盛り付け、お好みで追加のフェタチーズをトッピングします。</li>
+          </ol>
+        </div>
+      </section>
+</body>
+</html>
+

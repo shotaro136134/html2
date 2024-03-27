@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-color: #f4f4f4;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+        }
+    
+        .calendar {
+          display: flex;
+          flex-wrap: wrap;
+          max-width: 400px;
+          margin: 0 auto;
+        }
+    
+        .calendar-week {
+          display: flex;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+    
+        .calendar-day {
+          flex: 1;
+          text-align: center;
+          padding: 10px;
+          border-radius: 5px;
+        }
+    
+        .current-month {
+          width: 100%;
+          text-align: center;
+          font-size: 24px;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 20px;
+        }
+    
+        .current-date {
+          width: 100%;
+          text-align: center;
+          font-size: 16px;
+          color: #3498db;
+          margin-bottom: 10px;
+        }
+    
+        .current-day {
+          background-color: #3498db;
+          color: #fff !important;
+          border-radius: 50%;
+        }
+      </style>
+      <title>今月のカレンダー</title>
+</head>
+<body>
+    
+    <div class="current-month" id="currentMonth"></div>
+    <div class="current-date" id="currentDate"></div>
+    <div class="calendar" id="calendar"></div>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var currentDateElement = document.getElementById('currentDate');
+        var currentMonthElement = document.getElementById('currentMonth');
+        var calendarElement = document.getElementById('calendar');
+    
+        var currentDate = new Date();
+        var currentYear = currentDate.getFullYear();
+        var currentMonth = currentDate.getMonth();
+        var currentDay = currentDate.getDate();
+        var options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+    
+        currentMonthElement.textContent = currentYear + "年" + (currentMonth + 1) + "月";
+    
+        var firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+        var lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+        var firstDayOfWeek = firstDayOfMonth.getDay();
+        var daysInMonth = lastDayOfMonth.getDate();
+    
+        currentDateElement.textContent = "今日の日付: " + currentDate.toLocaleDateString('ja-JP', options);
+    
+        var calendarHtml = '<div class="calendar-week">';
+    
+        for (var i = 0; i < firstDayOfWeek; i++) {
+          calendarHtml += '<div class="calendar-day"></div>';
+        }
+    
+        for (var day = 1; day <= daysInMonth; day++) {
+          var dayOfWeek = new Date(currentYear, currentMonth, day).getDay();
+          var isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+          var isCurrentDay = day === currentDay;
+    
+          calendarHtml += '<div class="calendar-day ' + (isCurrentDay ? 'current-day' : '') + '" style="color: ' + (isWeekend ? '#e74c3c' : '#333') + ';">' + day + '</div>';
+    
+          if (dayOfWeek === 6) {
+            calendarHtml += '</div><div class="calendar-week">';
+          }
+        }
+    
+        calendarHtml += '</div>';
+        calendarElement.innerHTML = calendarHtml;
+      });
+    </script>
+</body>
+</html>
